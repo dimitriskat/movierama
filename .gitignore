@@ -1,0 +1,12 @@
+MovieRama.Api/bin/
+MovieRama.Api/obj/
+MovieRama.Core.Tests/bin/
+MovieRama.Core.Tests/obj/
+MovieRama.Core/bin/
+MovieRama.Core/obj/
+MovieRama.Api.Tests/obj/
+MovieRama.Api.Tests/bin/
+.vs/
+MovieRama.Api/MovieRama.Api.csproj.user
+MovieRama.Api/Properties/PublishProfiles/MovieRamaApi - Web Deploy.pubxml
+MovieRama.Api/Properties/PublishProfiles/MovieRamaApi - Web Deploy.pubxml.user

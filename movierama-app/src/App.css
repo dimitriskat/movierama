@@ -1,0 +1,17 @@
+.movie {
+  margin: 0px auto;
+  max-width: 800px;
+}
+
+.movie .actions {
+  display: 'flex';
+}
+
+.flexGrow1 {
+  flex-grow: 1
+}
+
+.loginButton {
+	color: white;
+	text-decoration-style: none
+}
