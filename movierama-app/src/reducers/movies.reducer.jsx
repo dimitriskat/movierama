@@ -15,12 +15,6 @@ const initialState = {
 
 export function movies(state = initialState, action) {
 	switch (action.type) {
-		case movieConstants.LIST_REQUEST:
-			return update(state, {
-				loading: {
-					$set: true
-				}
-			});
 		case movieConstants.LIST_SUCCESS:
 			return update(state, {
 				items: {

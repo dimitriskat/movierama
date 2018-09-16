@@ -76,11 +76,11 @@ class Movie extends React.Component {
 	}
 
 	userLikesMovie() {
-		return this.props.movie.userOpinion == 0;
+		return this.props.movie.userOpinion === 0;
 	}
 
 	userHatesMovie() {
-		return this.props.movie.userOpinion == 1;
+		return this.props.movie.userOpinion === 1;
 	}
 
 	render() {

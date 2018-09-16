@@ -25,7 +25,7 @@ function constructQueryParameters(sorting, filters) {
 	var queryString = '';
 	if (sorting) queryString = '?sortField=' + sorting.field + '&sortOrder=' + sorting.order;
 	if (filters.user) {
-		queryString = (queryString.length == 0) ? '?' : queryString + '&';
+		queryString = (queryString.length === 0) ? '?' : queryString + '&';
 		queryString += ('user=' + filters.user.id);
 	}
 	return queryString;

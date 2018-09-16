@@ -92,8 +92,8 @@ function post(movie, redirect) {
 			);
 	};
 
-	function request(user) { return { type: movieConstants.POST_REQUEST, user } }
-	function success(user) { return { type: movieConstants.POST_SUCCESS, user } }
+	function request(movie) { return { type: movieConstants.POST_REQUEST, movie } }
+	function success(movie) { return { type: movieConstants.POST_SUCCESS, movie } }
 	function failure(error) { return { type: movieConstants.POST_FAILURE, error } }
 }
 

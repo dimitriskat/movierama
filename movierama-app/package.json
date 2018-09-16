@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "@material-ui/icons": "^2.0.3",
+    "fetch-intercept": "^2.3.0",
     "history": "^4.7.2",
     "immutability-helper": "^2.7.1",
     "prop-types": "^15.6.2",

@@ -21,7 +21,7 @@ const styles = theme => ({
 
 class ActionBar extends React.Component {
 	render() {
-		const { classes, sorting, filters } = this.props;
+		const { classes, sorting, filters, loggedIn } = this.props;
 
 		const sortByLike = sorting.field === 'likes',
 			sortByHate = sorting.field === 'hates',
@@ -77,7 +77,7 @@ class ActionBar extends React.Component {
 					color="primary"
 					className={classes.button}
 					component={Link}
-					to="/movie">
+					to={loggedIn ? "/movie" : '/register'}>
 					New Movie
       	</Button>
 			</div>

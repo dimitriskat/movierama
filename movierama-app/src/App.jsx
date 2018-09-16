@@ -8,9 +8,10 @@ import { LoginPage } from './views/LoginPage';
 import { RegisterPage } from './views/RegisterPage';
 
 import { BrowserRouter, Route } from 'react-router-dom';
-import { history } from './helpers';
+import { history, initFetchIntercept } from './helpers';
 import { alertActions } from './actions';
 import { connect } from 'react-redux';
+import { Loader } from './components/Loader';
 
 class App extends Component {
 
@@ -22,6 +23,8 @@ class App extends Component {
 			// clear alert on location change
 			dispatch(alertActions.clear());
 		});
+
+		initFetchIntercept(dispatch);
 	}
 
 	render() {
@@ -30,6 +33,7 @@ class App extends Component {
 			<BrowserRouter>
 				<div>
 					<ApplicationBar />
+					<Loader />
 					{alert.message &&
 						<div className={`alert ${alert.type}`}>{alert.message}</div>
 					}
