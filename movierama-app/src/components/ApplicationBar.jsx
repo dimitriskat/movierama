@@ -7,13 +7,15 @@ import { userActions } from '../actions';
 
 class ApplicationBar extends React.Component {
 
-	handleLogout = (id) => this.props.dispatch(userActions.logout())
+	handleOnClick = (location) => this.props.history.push(location)
+
+	handleLogout = () => this.props.dispatch(userActions.logout())
 
 	render() {
 		return (
 			<AppBar position="static">
 				<Toolbar>
-					<Typography variant="title" color="inherit" className='flexGrow1'>
+					<Typography variant="title" color="inherit" className='flexGrow1 cursorPointer'>
 						<span onClick={() => this.handleOnClick('/')}>Movie Rama</span>
 					</Typography>
 					{!this.props.loggedIn ?

@@ -15,3 +15,7 @@
 	color: white;
 	text-decoration-style: none
 }
+
+.cursorPointer {
+  cursor: pointer;
+}
