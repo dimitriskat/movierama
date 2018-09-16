@@ -1,10 +1,12 @@
 import fetchIntercept from 'fetch-intercept';
 import { loaderActions } from '../actions';
+import { alertActions } from '../actions';
 
 export function initFetchIntercept(dispatch) {
 	fetchIntercept.register({
 		
 		request: function (url, config) {
+			dispatch(alertActions.clear());
 			dispatch(loaderActions.show());
 			
 			// Modify the url or config here
