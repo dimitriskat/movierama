@@ -24,7 +24,7 @@ If you wish to run this project locally please follow the instructions listed be
 
 ### Front-end
 
-Building the (front end application)[movierama-app] requires [npm](https://www.npmjs.com/get-npm) to be installed.
+Building the [front end application](movierama-app) requires [npm](https://www.npmjs.com/get-npm) to be installed.
 
 In the project directory, you can run:
 
@@ -36,7 +36,7 @@ To install all project dependencies and:
 
 To start the app at the local web server. This opens the app at: [http://localhost:3000](http://localhost:3000).
 
-For more detailed instructions see the project's (readme)[movierama-app]
+For more detailed instructions see the project's [readme](movierama-app)
 
 In development mode, the SPA application requires a back-end api to serve the data at (http://localhost:49717/api)[http://localhost:49717/api]
 
