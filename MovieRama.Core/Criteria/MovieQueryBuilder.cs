@@ -6,6 +6,10 @@ using System.Text;
 
 namespace MovieRama.Core.Criteria
 {
+	/// <summary>
+	/// Builds the linq query that will be handled in the entity framework.
+	/// Is used by repositories (or in data access layer in general)
+	/// </summary>
 	public class MovieQueryBuilder: QueryBuilderBase
 	{
 		public IQueryable<Movie> BuildQueryable(MovieCriteria criteria, IQueryable<Movie> initial)

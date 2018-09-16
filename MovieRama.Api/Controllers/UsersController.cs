@@ -24,7 +24,8 @@ namespace MovieRama.Api.Controllers
 			_authenticationService = authenticationService;
         }
 
-        [AllowAnonymous]
+		// POST api/user/authenticate
+		[AllowAnonymous]
         [HttpPost("authenticate")]
         public async Task<IActionResult> AuthenticateAsync([FromBody]CredentialsDto credentials)
         {
@@ -45,6 +46,7 @@ namespace MovieRama.Api.Controllers
             });
         }
 
+		// POST api/user/register
 		[AllowAnonymous]
 		[HttpPost("register")]
 		public async Task<IActionResult> RegisterAsync([FromBody]UserDto userDto)
@@ -53,7 +55,8 @@ namespace MovieRama.Api.Controllers
 			return CreatedAtAction("GetAsync", new { id }, id);
 		}
 
-        [HttpGet("{id}")]
+		// GET api/user/{id}
+		[HttpGet("{id}")]
         public async Task<IActionResult> GetAsync(int id)
         {
             var user = await _userService.GetByIdAsync(id);

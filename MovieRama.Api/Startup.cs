@@ -41,18 +41,22 @@ namespace MovieRama.Api
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.
+				//Using .net core mvc framework
 				AddMvc().
+				//Adding fluent validation for dto/model validation
 				AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<MoviePostDtoValidator>());
 
+			//Using entity framework as orm with sql server database
 			services.AddDbContext<MovieRamaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+			//Automapper for mapping domain objects to dtos and vice versa
 			services.AddAutoMapper();
 
 			// configure strongly typed settings objects
 			var appSettingsSection = Configuration.GetSection("AppSettings");
 			services.Configure<AppSettings>(appSettingsSection);
 
-			// configure jwt authentication
+			//Configure jwt authentication. Simple in memory token management
 			var appSettings = appSettingsSection.Get<AppSettings>();
 			var key = Encoding.ASCII.GetBytes(appSettings.Secret);
 			services.AddAuthentication(x =>
@@ -73,13 +77,13 @@ namespace MovieRama.Api
 				};
 			});
 
-			//Repositories
+			//Registering repositories
 			services.AddScoped<IUnitOfWork, UnitOfWork>();
 			services.AddScoped<IMovieRepository, MovieRepository>();
 			services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IUserOpinionRepository, UserOpinionRepository>();
 
-			//Services
+			//Registering services
 			services.AddScoped<Authentication.IAuthenticationService, Authentication.AuthenticationService>();
 			services.AddScoped<IMovieService, MovieService>();
 			services.AddScoped<IUserOpinionService, UserOpinionService>();
@@ -98,7 +102,7 @@ namespace MovieRama.Api
                 app.UseHsts();
             }
 
-            // global cors policy
+            //Global cors policy - allowing everything
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -107,6 +111,7 @@ namespace MovieRama.Api
 
             app.UseAuthentication();
 
+			//Global exception handling 
 			app.ConfigureExceptionHandler(_logger);
 
 			//app.UseHttpsRedirection();

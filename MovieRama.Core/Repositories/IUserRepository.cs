@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace MovieRama.Core.Repositories
 {
-    public interface IUserRepository
-    {
+	/// <summary>
+	/// Used by the service layer in order access domain objects
+	/// </summary>
+	public interface IUserRepository : IRepository
+	{
 		Task<User> GetUserAsync(int id);
 		Task<User> GetUserByUserNameAsync(string userName);
 		Task<IEnumerable<User>> GetUsersAsync(IEnumerable<int> ids);

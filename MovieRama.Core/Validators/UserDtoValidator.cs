@@ -6,6 +6,9 @@ using MovieRama.Core.Dtos;
 
 namespace MovieRama.Core.Validators
 {
+	/// <summary>
+	/// Business object validator for user dto
+	/// </summary>
 	public class UserDtoValidator : AbstractValidator<UserDto>
 	{
 		public UserDtoValidator()

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MovieRama.Core.Repositories
 {
-    public interface IUserOpinionRepository
+	/// <summary>
+	/// Used by the service layer in order access domain objects
+	/// </summary>
+	public interface IUserOpinionRepository : IRepository
 	{
 		Task<UserOpinion> GetUserOpinionAsync(int user, int movie);
 		Task<IEnumerable<UserOpinion>> GetUserOpinionsAsync(int user, IEnumerable<int> movies);

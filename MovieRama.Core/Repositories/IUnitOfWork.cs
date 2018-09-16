@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MovieRama.Core.Repositories
 {
+	/// <summary>
+	/// Coordinates the execution of a business transaction
+	/// </summary>
 	public interface IUnitOfWork
 	{
 		void BeginTransaction();

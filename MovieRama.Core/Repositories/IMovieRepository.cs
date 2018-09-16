@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace MovieRama.Core.Repositories
 {
-    public interface IMovieRepository
-    {
+	/// <summary>
+	/// Used by the service layer in order access domain objects
+	/// </summary>
+	public interface IMovieRepository : IRepository
+	{
 		Task<IEnumerable<Movie>> ListMoviesAsync(MovieCriteria criteria);
 		Task<Movie> GetMovieAsync(int id);
 		void Add(Movie movie);

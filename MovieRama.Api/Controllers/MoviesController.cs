@@ -42,6 +42,7 @@ namespace MovieRama.Api.Controllers
 			return Ok(dtos);
 		}
 
+		// GET api/movies/{id}
 		[AllowAnonymous]
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetAsync(int id)
@@ -61,7 +62,7 @@ namespace MovieRama.Api.Controllers
 			return CreatedAtAction("GetAsync", new { id }, id);
 		}
 
-		// PUT api/movies/5/like
+		// PUT api/movies/{id}/like
 		[HttpPut("{id}/like")]
 		public async Task<ActionResult> LikeAsync(int id)
 		{
@@ -70,7 +71,7 @@ namespace MovieRama.Api.Controllers
 			return Ok();
 		}
 
-		// PUT api/movies/5/hate
+		// PUT api/movies/{id}/hate
 		[HttpPut("{id}/hate")]
 		public async Task<ActionResult> HateAsync(int id)
 		{
@@ -79,7 +80,7 @@ namespace MovieRama.Api.Controllers
 			return Ok();
 		}
 
-		// PUT api/movies/5/opinionrevoke
+		// PUT api/movies/{id}/opinionrevoke
 		[HttpPut("{id}/opinionrevoke")]
 		public async Task<ActionResult> RevokeAsync(int id)
 		{

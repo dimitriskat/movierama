@@ -7,6 +7,9 @@ using System.Text;
 
 namespace MovieRama.Core.Criteria
 {
+	/// <summary>
+	/// Contains common functions for concrete query builder implementations
+	/// </summary>
 	public class QueryBuilderBase
 	{
 		protected bool ShouldSort(CriteriaBase criteria)

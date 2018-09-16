@@ -32,6 +32,9 @@ namespace MovieRama.Api.Authentication
 			return _userService.AuthenticateAsync(username, password);
 		}
 
+		/// <summary>
+		/// Generating jwt token with user id as the name claim
+		/// </summary>
 		public string GenerateAccessToken(int userId)
 		{
 			var tokenHandler = new JwtSecurityTokenHandler();
@@ -50,6 +53,9 @@ namespace MovieRama.Api.Authentication
 			return tokenString;
 		}
 
+		/// <summary>
+		/// Extracting the user id from the provided jwt claim 
+		/// </summary>
 		public int GetUserId(IIdentity identity)
 		{
 			var claimsIdentity = (ClaimsIdentity)identity;

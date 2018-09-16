@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MovieRama.Core.Services
 {
-    public interface IUserService
+	/// <summary>
+	/// Provides a set of operations such as creating and authenticating users
+	/// </summary>
+	public interface IUserService
     {
 		Task<int> CreateAsync(UserDto user, string password);
 		Task<UserDto> AuthenticateAsync(string username, string password);

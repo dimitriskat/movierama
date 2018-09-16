@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace MovieRama.Core.Models
 {
+	/// <summary>
+	/// MovieRama db context
+	/// </summary>
     public partial class MovieRamaContext : DbContext
     {
         public MovieRamaContext()

@@ -9,7 +9,7 @@ using MovieRama.Core.Criteria;
 
 namespace MovieRama.Core.Repositories
 {
-    public class MovieRepository : RepositoryBase, IMovieRepository
+    public class MovieRepository : IMovieRepository
 	{
         private readonly MovieRamaContext _context;
 

@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using MovieRama.Core.Criteria;
 
 namespace MovieRama.Core.Repositories
 {
-    public class UserRepository : RepositoryBase, IUserRepository
+    public class UserRepository : IUserRepository
 	{
         private readonly MovieRamaContext _context;
 
