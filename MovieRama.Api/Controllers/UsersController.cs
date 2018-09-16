@@ -26,22 +26,21 @@ namespace MovieRama.Api.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public async Task<IActionResult> AuthenticateAsync([FromBody]UserDto userDto)
+        public async Task<IActionResult> AuthenticateAsync([FromBody]CredentialsDto credentials)
         {
-            var user = await _authenticationService.AuthenticateAsync(userDto.Username, userDto.Password);
+            var user = await _authenticationService.AuthenticateAsync(credentials.Username, credentials.Password);
 
-            if (user == null)
-                return BadRequest("Username or password is incorrect");
+            if (user == null) return BadRequest("Username or password is incorrect");
 
 			var token = _authenticationService.GenerateAccessToken(user.Id);
 
             // return basic user info (without password) and token to store client side
-            return Ok(new
-            {
-                user.Id,
-                user.Username,
-                user.FirstName,
-                user.LastName,
+            return Ok(new AccessTokenDto()
+			{
+                Id = user.Id,
+				Username = user.Username,
+				FirstName = user.FirstName,
+				LastName = user.LastName,
                 Token = token
             });
         }
