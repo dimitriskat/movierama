@@ -10,8 +10,8 @@ namespace MovieRama.Core.Validators
 	{
 		public MoviePostDtoValidator()
 		{
-			RuleFor(customer => customer.Title).NotNull().NotEmpty().MaximumLength(250);
-			RuleFor(customer => customer.Description).NotNull().NotEmpty().MaximumLength(4000);
+			RuleFor(movie => movie.Title).NotNull().NotEmpty().MaximumLength(250);
+			RuleFor(movie => movie.Description).NotNull().NotEmpty().MaximumLength(4000);
 		}
 	}
 }

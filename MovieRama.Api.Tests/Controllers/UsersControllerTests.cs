@@ -11,7 +11,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace MovieRama.Api.Tests
+namespace MovieRama.Api.Tests.Controllers
 {
 	public class UsersControllerTests
 	{

@@ -6,6 +6,7 @@
 		"node_modules{,/**}",
 		"node_modules{,/**}",
 		"node_modules{,/**}",
+		"node_modules{,/**}",
 		"node_modules{,/**}"
 	],
 	"appService.defaultWebAppToDeploy": "/subscriptions/b3440fed-e1e9-4941-a135-3a6ae479c8dc/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/MovieRama",
