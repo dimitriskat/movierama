@@ -46,9 +46,9 @@ Please see the following instructions that describe how to setup the API locally
 
 In order to run the api project in development mode, visual studio 15.7 or later is required (in order to have the .net core 2.1 installed)
 
-Open the [MovieRama.sln](MovieRama.sln) file and run the MovieRama.API project. This starts a local instance of the api at (http://localhost:49717/api)[http://localhost:49717/api]
+Open the [MovieRama.sln](MovieRama.sln) file and run the MovieRama.API project. This starts a local instance of the api at [http://localhost:49717/api](http://localhost:49717/api)
 
-In development mode, the back end service requires an active MovieRama database at localhost (sql server default port). If you need to specify an other database name or server please modify the connection string option located at the appsettings.json.
+In development mode, the back end service requires an active MovieRama database at localhost (sql server default port). If you need to specify an other database name or server please modify the connection string option located at the [appsettings.json](./MovieRama.Api/appsettings.json).
 
 Please see the following instructions that describe how to setup the database. 
 
