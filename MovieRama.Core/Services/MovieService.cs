@@ -13,20 +13,20 @@ namespace MovieRama.Core.Services
 	public class MovieService : IMovieService
 	{
 		private readonly IMapper _mapper;
-		private readonly IUnitOfWork _unitOfWork;
+		private readonly IApplicationContext _applicationContext;
         private readonly IMovieRepository _movieRepository;
 		private readonly IUserRepository _userRepository;
 		private readonly IUserOpinionRepository _userOpinionRepository;
 
 		public MovieService(
 			IMapper mapper,
-			IUnitOfWork unitOfWork,
+			IApplicationContext applicationContext,
             IMovieRepository movieRepository,
 			IUserRepository userRepository,
 			IUserOpinionRepository userOpinionRepository)
 		{
 			_mapper = mapper;
-			_unitOfWork = unitOfWork;
+			_applicationContext = applicationContext;
             _movieRepository = movieRepository;
 			_userRepository = userRepository;
 			_userOpinionRepository = userOpinionRepository;
@@ -40,7 +40,7 @@ namespace MovieRama.Core.Services
 			IEnumerable<User> users = null;
 			IEnumerable<UserOpinion> opinions = null;
 
-			_unitOfWork.BeginTransaction();
+			_applicationContext.BeginTransaction();
 			try
 			{
 				movies = await _movieRepository.ListMoviesAsync(criteria);
@@ -52,11 +52,11 @@ namespace MovieRama.Core.Services
 					await _userOpinionRepository.GetUserOpinionsAsync(userId.Value, movies.Select(x => x.Id).ToList()) :
 					Enumerable.Empty<UserOpinion>();
 
-				_unitOfWork.CommitTransaction();
+				_applicationContext.CommitTransaction();
 			}
 			catch (Exception)
 			{
-				_unitOfWork.RollbackTransaction();
+				_applicationContext.RollbackTransaction();
 				throw;
 			}
 
@@ -96,7 +96,7 @@ namespace MovieRama.Core.Services
 			movie.CreationTime = DateTime.UtcNow;
 			movie.LastUpdateTime = DateTime.UtcNow;
 			_movieRepository.Add(movie);
-			await _unitOfWork.SaveChangesAsync();
+			await _applicationContext.SaveChangesAsync();
 			return movie.Id;
         }
 	}

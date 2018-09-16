@@ -9,23 +9,23 @@ namespace MovieRama.Core.Services
 {
 	public class UserOpinionService : IUserOpinionService
 	{
-		private readonly IUnitOfWork _unitOfWork;
+		private readonly IApplicationContext _applicationContext;
         private readonly IMovieRepository _movieRepository;
 		private readonly IUserOpinionRepository _userOpinionRepository;
 
 		public UserOpinionService(
-			IUnitOfWork unitOfWork,
+			IApplicationContext applicationContext,
             IMovieRepository movieRepository,
 			IUserOpinionRepository userOpinionRepository)
 		{
-			_unitOfWork = unitOfWork;
+			_applicationContext = applicationContext;
             _movieRepository = movieRepository;
             _userOpinionRepository = userOpinionRepository;
 		}
 
 		public async Task LikeAsync(int userId, int movieId)
 		{
-			_unitOfWork.BeginTransaction();
+			_applicationContext.BeginTransaction();
 			try
 			{
 				Movie movie = await _movieRepository.GetMovieAsync(movieId);
@@ -54,20 +54,20 @@ namespace MovieRama.Core.Services
 					_movieRepository.Update(movie);
 				}
 
-				await _unitOfWork.SaveChangesAsync();
+				await _applicationContext.SaveChangesAsync();
 
-				_unitOfWork.CommitTransaction();
+				_applicationContext.CommitTransaction();
 			}
 			catch (Exception)
 			{
-				_unitOfWork.RollbackTransaction();
+				_applicationContext.RollbackTransaction();
 				throw;
 			}
 		}
 
 		public async Task HateAsync(int userId, int movieId)
 		{
-			_unitOfWork.BeginTransaction();
+			_applicationContext.BeginTransaction();
 			try
 			{
 				Movie movie = await _movieRepository.GetMovieAsync(movieId);
@@ -96,20 +96,20 @@ namespace MovieRama.Core.Services
 					_movieRepository.Update(movie);
 				}
 
-				await _unitOfWork.SaveChangesAsync();
+				await _applicationContext.SaveChangesAsync();
 
-				_unitOfWork.CommitTransaction();
+				_applicationContext.CommitTransaction();
 			}
 			catch (Exception)
 			{
-				_unitOfWork.RollbackTransaction();
+				_applicationContext.RollbackTransaction();
 				throw;
 			}
 		}
 
 		public async Task RevokeAsync(int userId, int movieId)
 		{
-			_unitOfWork.BeginTransaction();
+			_applicationContext.BeginTransaction();
 			try
 			{
 				Movie movie = await _movieRepository.GetMovieAsync(movieId);
@@ -129,13 +129,13 @@ namespace MovieRama.Core.Services
 					_movieRepository.Update(movie);
 				}
 
-				await _unitOfWork.SaveChangesAsync();
+				await _applicationContext.SaveChangesAsync();
 
-				_unitOfWork.CommitTransaction();
+				_applicationContext.CommitTransaction();
 			}
 			catch (Exception)
 			{
-				_unitOfWork.RollbackTransaction();
+				_applicationContext.RollbackTransaction();
 				throw;
 			}
 		}

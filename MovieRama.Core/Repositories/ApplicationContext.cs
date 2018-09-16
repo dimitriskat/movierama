@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MovieRama.Core.Repositories
 {
-	public class UnitOfWork : IUnitOfWork
+	public class ApplicationContext : IApplicationContext
 	{
 		private MovieRamaContext _context;
 
-		public UnitOfWork(MovieRamaContext context)
+		public ApplicationContext(MovieRamaContext context)
 		{
 			_context = context;
 		}

@@ -12,16 +12,16 @@ namespace MovieRama.Core.Services
     public class UserService : IUserService
     {
 		private readonly IUserRepository _userRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IApplicationContext _applicationContext;
 		private readonly IMapper _mapper;
 
 		public UserService(
 			IUserRepository userRepository,
-			IUnitOfWork unitOfWork,
+			IApplicationContext applicationContext,
 			IMapper mapper)
 		{
 			_userRepository = userRepository;
-			_unitOfWork = unitOfWork;
+			_applicationContext = applicationContext;
 			_mapper = mapper;
 		}
 
@@ -60,7 +60,7 @@ namespace MovieRama.Core.Services
 			if (string.IsNullOrWhiteSpace(password))
 				throw new Exception("Password is required");
 
-			_unitOfWork.BeginTransaction();
+			_applicationContext.BeginTransaction();
 			try
 			{
 				bool exists = await _userRepository.Exists(userDto.Username);
@@ -79,15 +79,15 @@ namespace MovieRama.Core.Services
 
 				_userRepository.Add(user);
 
-				await _unitOfWork.SaveChangesAsync();
+				await _applicationContext.SaveChangesAsync();
 
-				_unitOfWork.CommitTransaction();
+				_applicationContext.CommitTransaction();
 
 				return user.Id;
 			}
 			catch (Exception)
 			{
-				_unitOfWork.RollbackTransaction();
+				_applicationContext.RollbackTransaction();
 				throw;
 			}
 		}

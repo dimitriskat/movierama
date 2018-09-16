@@ -9,7 +9,7 @@ namespace MovieRama.Core.Repositories
 	/// <summary>
 	/// Coordinates the execution of a business transaction
 	/// </summary>
-	public interface IUnitOfWork
+	public interface IApplicationContext
 	{
 		void BeginTransaction();
 		void CommitTransaction();

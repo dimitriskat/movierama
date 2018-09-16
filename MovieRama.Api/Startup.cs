@@ -78,7 +78,7 @@ namespace MovieRama.Api
 			});
 
 			//Registering repositories
-			services.AddScoped<IUnitOfWork, UnitOfWork>();
+			services.AddScoped<IApplicationContext, ApplicationContext>();
 			services.AddScoped<IMovieRepository, MovieRepository>();
 			services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IUserOpinionRepository, UserOpinionRepository>();
